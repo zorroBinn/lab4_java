@@ -1,7 +1,7 @@
-public class Rezult {
-    public double rez;
+public class Rezult { //Вспомогательный класс для передачи целочисленного резльтата
+    public double rez; //результат
 
-    Rezult() {
+    Rezult() { //конструктор без параметров
         this.rez = 0;
     }
 }

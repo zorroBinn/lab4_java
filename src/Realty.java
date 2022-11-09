@@ -1,20 +1,20 @@
 import java.util.Scanner;
 
-public class Realty {
-    private Human human;
-    private String Housing, Vehicle;
+public class Realty { //Класс имущества персонажа
+    private Human human; //Персонаж
+    private String Housing, Vehicle; //недвижимость, ТО
 
-    Realty() {
+    Realty() {//Конструктор без параметров
         this.human = new Human();
         this.Housing = "";
         this.Vehicle = "";
     }
-    Realty(Human human, String housing, String vehicle) {
+    Realty(Human human, String housing, String vehicle) {//конструктор с параметрами
         this.human = human;
         this.Housing = housing;
         this.Vehicle = vehicle;
     }
-    public void Read(Human human) {
+    public void Read(Human human) {//Ввод с клавиатуры
         String strhousing = "Garage", strvehicle = "Bicycle";
         System.out.println("Начальное жильё: " + strhousing);
         System.out.println("Начальное ТС: " + strvehicle);
@@ -22,12 +22,12 @@ public class Realty {
         this.Housing = strhousing;
         this.Vehicle = strvehicle;
     }
-    public void Display() {
+    public void Display() {//Вывод на экран
         System.out.println("Имущество персонажа " + human.NameDisplay());
         System.out.println("Жильё: " + Housing);
         System.out.println("ТС: " + Vehicle);
     }
-    public void BuyNew(Human human) {
+    public void BuyNew(Human human) { //Метод покупки имущества
         int choice, flag;
         String strbuynew;
         System.out.println("Выберите для покупки: ");

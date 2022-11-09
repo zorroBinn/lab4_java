@@ -1,8 +1,9 @@
 import java.util.Scanner;
 
 public class Clothes {
-    private int ClothesStatus;
+    private int ClothesStatus, ClothingSetCount;
     private String Body, Pants, Shoes;
+    private static int count = 0;
 
     Clothes() {
         this.ClothesStatus = 0;
@@ -15,6 +16,8 @@ public class Clothes {
         this.Body = body;
         this.Pants = pants;
         this.Shoes = shoes;
+        count++;
+        this.ClothingSetCount = count;
     }
     public void Read() {
         int status;
@@ -33,8 +36,11 @@ public class Clothes {
         this.Body = strbody;
         this.Pants = strpants;
         this.Shoes = strshoes;
+        count++;
+        this.ClothingSetCount = count;
     }
     public void Display() {
+        System.out.println("Комплект одежды номер " + ClothingSetCount + ":");
         System.out.println("Верхняя одежда: " + Body);
         System.out.println("Штаны: " + Pants);
         System.out.println("Обувь: " + Shoes);
@@ -55,5 +61,8 @@ public class Clothes {
             if (this.ClothesStatus > 100)
                 this.ClothesStatus = 100;
         }
+    }
+    public static int Getcount(){
+        return count;
     }
 }

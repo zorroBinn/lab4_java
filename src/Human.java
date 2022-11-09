@@ -12,7 +12,6 @@ public class Human
         this.Name = "";
         this.Sex = "";
         this.MoneyBalance = 1000;
-        this.clothes = new Clothes();
     }
     Human(int age, String name, String sex, Clothes clothes) {
         this.Age = age;

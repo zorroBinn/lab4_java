@@ -38,18 +38,19 @@ public class MedicalCard
         System.out.println("Рост (в см): " + Height);
         System.out.println("Состояние здоровья: " + HealthStatus);
     }
-    public void BodyMassIndex() {
+    public void BodyMassIndex(Rezult rez) {
         double Index, weight, height;
         if (Height > 0 && Weight > 0) {
             weight = Weight;
             height = Height;
             Index = weight / (height * height / 10000);
+            rez.rez = Index;
             if (Index > 18.5f && Index < 25.0f)
-                System.out.println("Нормальный вес, ИМТ = " + Index);
+                System.out.println("Нормальный вес");
             else if (Index <= 18.5f)
-                System.out.println("Дефицитный веса, ИМТ = " + Index);
+                System.out.println("Дефицитный веса");
             else
-                System.out.println("Избыточный вес, ИМТ = " + Index);
+                System.out.println("Избыточный вес");
         }
     }
     public void SetHealthStatus() {

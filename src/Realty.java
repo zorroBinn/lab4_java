@@ -112,5 +112,6 @@ public class Realty { //Класс имущества персонажа
             }
         }
         if (flag == 1) System.out.println("Недостаточно денег для покупки");
+        else this.human = human;
     }
 }

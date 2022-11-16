@@ -35,5 +35,6 @@ public class Work { //Класс работа
     public void Working(Human human) {//Метод "Работать"
         System.out.println("За свою работу вы получили " + Payment + "р!");
         human.MoneyBalance += Payment;
+        this.human.MoneyBalance +=Payment;
     }
 }

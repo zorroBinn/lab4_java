@@ -1,3 +1,6 @@
+import java.io.IOException;
+import java.rmi.server.ExportException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class MedicalCard //Класс Медкарта
@@ -18,15 +21,45 @@ public class MedicalCard //Класс Медкарта
         this.human = human;
     }
     public void Read(Human human) {//Ввод с клавиатуры
-        String status;
-        int height, weight;
+        String status = "";
+        int height = 0, weight = 0;
+        boolean correctinput = false;
         Scanner inp = new Scanner(System.in);
-        System.out.println("Вес (в кг): ");
-        weight = inp.nextInt();
-        System.out.println("Рост (в см): ");
-        height = inp.nextInt();
-        System.out.println("Состояние здоровья: ");
-        status = inp.nextLine();
+        System.out.println("Заполните медкарту персонажа: ");
+        while (!correctinput) {
+            try {
+                System.out.println("Вес (в кг): ");
+                weight = inp.nextInt();
+                if (weight < 2 || weight > 550) throw new IOException();
+                System.out.println("Рост (в см): ");
+                height = inp.nextInt();
+                if (height < 20 || height > 300) throw new Exception();
+                correctinput = true;
+            }
+            catch (InputMismatchException ex) {
+                inp.nextLine();
+                System.out.println("Неверный ввод");
+            }
+            catch (IOException ex) {
+                inp.nextLine();
+                System.out.println("Вес персонажа не может быть равен " + weight);
+            }
+            catch (Exception ex) {
+                inp.nextLine();
+                System.out.println("Рост персонажа не может быть равен " + height);
+            }
+        }
+        while (correctinput) {
+            try {
+                System.out.println("Состояние здоровья: ");
+                status = inp.nextLine();
+                if (status.isEmpty()) throw new Exception();
+                correctinput = false;
+            }
+            catch (Exception ex) {
+                System.out.println("Ошибка ввода, повторите ещё раз!");
+            }
+        }
         this.Weight = weight;
         this.Height = height;
         this.HealthStatus = status;
@@ -54,11 +87,21 @@ public class MedicalCard //Класс Медкарта
         }
     }
     public void SetHealthStatus() { //Изменить статус здоровья
-        String status;
+        String status = "";
+        boolean correctinput = true;
         Scanner inp = new Scanner(System.in);
         System.out.println("Текущее состояние здоровья: " + HealthStatus);
-        System.out.println("Новое состояние здоровья: ");
-        status = inp.nextLine();
+        while (correctinput) {
+            try {
+                System.out.println("Новое состояние здоровья: ");
+                status = inp.nextLine();
+                if (status.isEmpty()) throw new Exception();
+                correctinput = false;
+            }
+            catch (Exception ex) {
+                System.out.println("Ошибка ввода, повторите ещё раз!");
+            }
+        }
         this.HealthStatus = status;
     }
 }

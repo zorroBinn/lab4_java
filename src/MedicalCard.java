@@ -49,6 +49,7 @@ public class MedicalCard //Класс Медкарта
                 System.out.println("Рост персонажа не может быть равен " + height);
             }
         }
+        inp.nextLine();
         while (correctinput) {
             try {
                 System.out.println("Состояние здоровья: ");

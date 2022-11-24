@@ -4,10 +4,10 @@ import java.util.concurrent.ExecutionException;
 
 public class Human //Класс персонаж
 {
-    private int Age; //Возраст
+    protected int Age; //Возраст
     public long MoneyBalance; //Игровой баланс
-    private String Name, Sex; //Имя, пол
-    private Clothes clothes; //Текущая одежда
+    protected String Name, Sex; //Имя, пол
+    protected Clothes clothes; //Текущая одежда
 
     Human() {//Конструктор без параметров
         this.Age = 0;

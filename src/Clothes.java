@@ -2,9 +2,9 @@ import java.util.Scanner;
 import java.util.InputMismatchException;
 
 public class Clothes {//Класс одежда
-    private int ClothesStatus, ClothingSetCount;//Статус целостности одежды, номер сета одежды
-    private String Body, Pants, Shoes;//Верх, низ, обувь
-    private static int count = 0;//Статическая переменная для хранения количества сетов одежды
+    protected int ClothesStatus, ClothingSetCount;//Статус целостности одежды, номер сета одежды
+    protected String Body, Pants, Shoes;//Верх, низ, обувь
+    protected static int count = 0;//Статическая переменная для хранения количества сетов одежды
 
     Clothes() { //Конструктор без параметров
         this.ClothesStatus = 0;

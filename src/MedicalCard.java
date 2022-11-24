@@ -3,11 +3,11 @@ import java.rmi.server.ExportException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class MedicalCard //Класс Медкарта
+public class MedicalCard extends Document //Класс Медкарта
 {
-    private Human human; //Персонаж
-    private String HealthStatus; //Статус здоровья персонажа
-    private int Weight, Height; //Вес, рост
+    protected Human human; //Персонаж
+    protected String HealthStatus; //Статус здоровья персонажа
+    protected int Weight, Height; //Вес, рост
 
     MedicalCard() {//Конструктор без параметров
         this.human = new Human();
@@ -15,6 +15,13 @@ public class MedicalCard //Класс Медкарта
         this.HealthStatus = "";
     }
     MedicalCard(Human human, int weight, int height, String status) {//конструктор с параметрами
+        this.Weight = weight;
+        this.Height = height;
+        this.HealthStatus = status;
+        this.human = human;
+    }
+    MedicalCard(Human human, int weight, int height, String status, int counter) {
+        super(counter);
         this.Weight = weight;
         this.Height = height;
         this.HealthStatus = status;
@@ -105,4 +112,5 @@ public class MedicalCard //Класс Медкарта
         }
         this.HealthStatus = status;
     }
+
 }

@@ -1,8 +1,8 @@
 import java.util.Scanner;
 
 public class Realty { //Класс имущества персонажа
-    private Human human; //Персонаж
-    private String Housing, Vehicle; //недвижимость, ТО
+    protected Human human; //Персонаж
+    protected String Housing, Vehicle; //недвижимость, ТО
 
     Realty() {//Конструктор без параметров
         this.human = new Human();

@@ -1,21 +1,30 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Work { //Класс работа
-    private Human human; //персонаж
-    private int Payment; //Оплата
-    private String Namework; //Место работы
+public class Worker extends Human { //Класс работа
+     //персонаж
+    protected int Payment; //Оплата
+    protected String Namework; //Место работы
 
-    Work() {//Конструктор без параметров
-        this.human = new Human();
+    Worker() {//Конструктор без параметров
         this.Namework = "";
         this.Payment = 0;
+        this.Name = "";
+        this.Age = 0;
+        this.MoneyBalance = 1000;
+        this.Sex = "";
+        this.clothes = new Clothes();
     }
-    Work(Human human, String namework, int payment) {//конструктор с параметрами
-        this.human = human;
+    Worker(Human human, String namework, int payment) {//конструктор с параметрами
         this.Namework = namework;
         this.Payment = payment;
+        this.Name = human.Name;
+        this.Age = human.Age;
+        this.MoneyBalance = human.MoneyBalance;
+        this.Sex = human.Sex;
+        this.clothes = human.clothes;
     }
+
     public void Read(Human human) {//Ввод с клавиатуры
         int payment = 0;
         String strnamework = "";
@@ -48,18 +57,23 @@ public class Work { //Класс работа
                 System.out.println("Оплата не может быть равна " + payment);
             }
         }
-        this.human = human;
         this.Namework = strnamework;
         this.Payment = payment;
+        this.Name = human.Name;
+        this.Age = human.Age;
+        this.MoneyBalance = human.MoneyBalance;
+        this.Sex = human.Sex;
+        this.clothes = human.clothes;
     }
+
     public void Display() {//Вывод на экран
-        System.out.println("Имя работника: " + human.NameDisplay());
+        System.out.println("Имя работника: " + NameDisplay());
         System.out.println("Место его работы: " + Namework);
         System.out.println("Оплата за работу: " + Payment);
     }
     public void Working(Human human) {//Метод "Работать"
         System.out.println("За свою работу вы получили " + Payment + "р!");
         human.MoneyBalance += Payment;
-        this.human = human;
+        this.MoneyBalance += Payment;
     }
 }

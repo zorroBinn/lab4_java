@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.InputMismatchException;
 
-public class Clothes {//Класс одежда
+public class Clothes implements Cloneable{//Класс одежда
     protected int ClothesStatus, ClothingSetCount;//Статус целостности одежды, номер сета одежды
     protected String Body, Pants, Shoes;//Верх, низ, обувь
     protected static int count = 0;//Статическая переменная для хранения количества сетов одежды
@@ -68,12 +68,10 @@ public class Clothes {//Класс одежда
         count++;
         this.ClothingSetCount = count;
     }
-    public void Display() {//Вывод на экран
-        System.out.println("Комплект одежды номер " + ClothingSetCount + ":");
-        System.out.println("Верхняя одежда: " + Body);
-        System.out.println("Штаны: " + Pants);
-        System.out.println("Обувь: " + Shoes);
-        System.out.println("Состояние одежды (в %): " + ClothesStatus);
+    public String toString() {//Вывод на экран
+        return "Комплект одежды номер " + ClothingSetCount + ":" + "\nВерхняя одежда: " + Body + "\nШтаны: " + Pants +
+                "\nОбувь: " + Shoes + "\nСостояние одежды (в %): " + ClothesStatus;
+
     }
     public void TearClothes(){//Метод порвать одежду
         if (this.ClothesStatus > 0) {
@@ -93,5 +91,13 @@ public class Clothes {//Класс одежда
     }
     public static int Getcount(){ //Статический метод возврата статической переменной
         return count;
+    }
+
+    public Clothes clone() {
+        try {
+            return (Clothes)super.clone();
+        } catch (CloneNotSupportedException e) {
+            return this;
+        }
     }
 }

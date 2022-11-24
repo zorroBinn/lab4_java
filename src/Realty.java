@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Realty { //Класс имущества персонажа
+public class Realty implements Reading{ //Класс имущества персонажа
     protected Human human; //Персонаж
     protected String Housing, Vehicle; //недвижимость, ТО
 
@@ -22,10 +22,8 @@ public class Realty { //Класс имущества персонажа
         this.Housing = strhousing;
         this.Vehicle = strvehicle;
     }
-    public void Display() {//Вывод на экран
-        System.out.println("Имущество персонажа " + human.NameDisplay());
-        System.out.println("Жильё: " + Housing);
-        System.out.println("ТС: " + Vehicle);
+    public String toString() {//Вывод на экран
+        return "Имущество персонажа " + human.GetName() + "\nЖильё: " + Housing + "\nТС: " + Vehicle;
     }
     public void BuyNew(Human human) { //Метод покупки имущества
         int choice, flag;

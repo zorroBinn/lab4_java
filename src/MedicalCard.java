@@ -3,7 +3,7 @@ import java.rmi.server.ExportException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class MedicalCard extends Document //Класс Медкарта
+public class MedicalCard extends Document implements Reading//Класс Медкарта
 {
     protected Human human; //Персонаж
     protected String HealthStatus; //Статус здоровья персонажа
@@ -73,11 +73,9 @@ public class MedicalCard extends Document //Класс Медкарта
         this.HealthStatus = status;
         this.human = human;
     }
-    public void Display() {//Вывод на экран
-        System.out.println("Имя пациента: " + human.NameDisplay());
-        System.out.println("Вес (в кг): " + Weight);
-        System.out.println("Рост (в см): " + Height);
-        System.out.println("Состояние здоровья: " + HealthStatus);
+    public String toString() {//Вывод на экран
+        return "Медкарта номер " + nomber + "\nИмя пациента: " + human.GetName() + "\nВес (в кг): " + Weight +
+                "\nРост (в см): " + Height + "\nСостояние здоровья: " + HealthStatus;
     }
     public void BodyMassIndex(Rezult rez) { //Метод рассчёта ИМТ
         double Index, weight, height;

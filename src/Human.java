@@ -2,7 +2,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.concurrent.ExecutionException;
 
-public class Human //Класс персонаж
+public class Human implements Cloneable//Класс персонаж
 {
     protected int Age; //Возраст
     public long MoneyBalance; //Игровой баланс
@@ -65,20 +65,28 @@ public class Human //Класс персонаж
         this.clothes = new Clothes();
         this.clothes.Read();
     }
-    public void Display() {//Вывод на экран
+    public String toString() {//Вывод на экран
+        return "Имя: " + Name + "\nПол: " + Sex + "\nВозраст: " + Age + "\nБаланс денег: " + MoneyBalance + "\n" + clothes.toString();
+    }
+
+    void CardDisplay() {//Вывод на экран имени и баланса
         System.out.println("Имя: " + Name);
-        System.out.println("Пол: " + Sex);
         System.out.println("Возраст: " + Age);
-        System.out.println("Баланс денег: " + MoneyBalance);
-        clothes.Display();
     }
 
-    void NameBalanceDisplay() {//Вывод на экран имени и баланса
-        System.out.println("Имя: " + Name);
-        System.out.println("Баланс денег: " + MoneyBalance);
-    }
-
-    String NameDisplay() {
+    String GetName() {
         return Name;
     } //Возвращение строки с именем
+
+    public Human clone() {
+        Human Clone = null;
+        try {
+            Clone = (Human)super.clone();
+            Clone.clothes = (Clothes)clothes.clone();
+            return Clone;
+        } catch (CloneNotSupportedException e) {
+            return this;
+        }
+
+    }
 }

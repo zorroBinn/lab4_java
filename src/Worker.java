@@ -1,7 +1,8 @@
+import javax.xml.namespace.QName;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Worker extends Human { //Класс работа
+public class Worker extends Human implements Reading{ //Класс работа
      //персонаж
     protected int Payment; //Оплата
     protected String Namework; //Место работы
@@ -66,14 +67,19 @@ public class Worker extends Human { //Класс работа
         this.clothes = human.clothes;
     }
 
-    public void Display() {//Вывод на экран
-        System.out.println("Имя работника: " + NameDisplay());
-        System.out.println("Место его работы: " + Namework);
+    @Override
+    public void CardDisplay() {//Вывод на экран
+        System.out.println("Рабочая карточка:\nИмя: " + Name + "\nПол: " + Age);
+        System.out.println("Место работы: " + Namework);
         System.out.println("Оплата за работу: " + Payment);
     }
     public void Working(Human human) {//Метод "Работать"
         System.out.println("За свою работу вы получили " + Payment + "р!");
         human.MoneyBalance += Payment;
         this.MoneyBalance += Payment;
+    }
+
+    public String toString() {
+        return "Имя: " + Name + "\nМесто работы: " + Namework + "\nОплата: " + Payment;
     }
 }

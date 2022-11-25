@@ -10,4 +10,6 @@ public abstract class Document {
         this.nomber = nomber;
     }
 
+    public abstract void ExtendDocument();
+
 }

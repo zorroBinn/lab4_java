@@ -112,4 +112,13 @@ public class Realty implements Reading{ //Класс имущества перс
         if (flag == 1) System.out.println("Недостаточно денег для покупки");
         else this.human = human;
     }
+
+    public Realty clone() {
+        try {
+            return (Realty)super.clone();
+        }
+        catch (CloneNotSupportedException e) {
+            return this;
+        }
+    }
 }

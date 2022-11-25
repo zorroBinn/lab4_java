@@ -111,4 +111,8 @@ public class MedicalCard extends Document implements Reading//Класс Мед�
         this.HealthStatus = status;
     }
 
+    @Override
+    public void ExtendDocument() {
+        System.out.println("Действие документа проведено");
+    }
 }

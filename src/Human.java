@@ -14,6 +14,7 @@ public class Human implements Cloneable//Класс персонаж
         this.Name = "";
         this.Sex = "";
         this.MoneyBalance = 1000;
+        this.clothes = new Clothes();
     }
     Human(int age, String name, String sex, Clothes clothes) {//конструктор с параметрами
         this.Age = age;
@@ -86,6 +87,5 @@ public class Human implements Cloneable//Класс персонаж
         } catch (CloneNotSupportedException e) {
             return this;
         }
-
     }
 }

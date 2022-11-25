@@ -82,7 +82,6 @@ public class Human implements Cloneable//Класс персонаж
         Human Clone = null;
         try {
             Clone = (Human)super.clone();
-            Clone.clothes = (Clothes)clothes.clone();
             return Clone;
         } catch (CloneNotSupportedException e) {
             return this;

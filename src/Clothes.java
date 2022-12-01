@@ -100,4 +100,12 @@ public class Clothes implements Cloneable{//Класс одежда
             return this;
         }
     }
+
+    public int getClothesStatus() {
+        return ClothesStatus;
+    }
+
+    public int getClothingSetCount(){
+        return ClothingSetCount;
+    }
 }

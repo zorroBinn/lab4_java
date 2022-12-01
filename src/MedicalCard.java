@@ -77,13 +77,12 @@ public class MedicalCard extends Document implements Reading//Класс Мед�
         return "Медкарта номер " + nomber + "\nИмя пациента: " + human.GetName() + "\nВес (в кг): " + Weight +
                 "\nРост (в см): " + Height + "\nСостояние здоровья: " + HealthStatus;
     }
-    public void BodyMassIndex(Rezult rez) { //Метод рассчёта ИМТ
+    public void BodyMassIndex() { //Метод рассчёта ИМТ
         double Index, weight, height;
         if (Height > 0 && Weight > 0) {
             weight = Weight;
             height = Height;
             Index = weight / (height * height / 10000);
-            rez.rez = Index;
             if (Index > 18.5f && Index < 25.0f)
                 System.out.println("Нормальный вес");
             else if (Index <= 18.5f)

@@ -1,31 +1,28 @@
 public class Main {
     public static void main(String[] args) {
-
-        System.out.println("Тест глубокого копирования");
-        Clothes cl = new Clothes(88, "1", "1", "1");
-        Clothes clone = new Clothes();
-        System.out.println(cl);
-        System.out.println(clone);
-        clone = cl.clone();
-        System.out.println(cl);
-        System.out.println(clone);
-        cl.Read();
-        System.out.println(cl);
-        System.out.println(clone);
-
-        Human h1 = new Human(19, "name", "M", cl);
-
-        System.out.println("Тест поверхностного копирования");
-        Realty r1 = new Realty(h1, "house", "car");
-        Realty r2 = new Realty();
-        System.out.println(r1);
-        System.out.println(r2);
-        r2 = r1.clone();
-        System.out.println(r1);
-        System.out.println(r2);
-        r2.Read(h1);
-        System.out.println(r1);
-        System.out.println(r2);
-
+        //Тест добавления и вывода
+        System.out.println("");
+        Clothes cl = new Clothes(88, "t1", "t1", "t1");
+        Wardrobe wb = new Wardrobe();
+        wb.Add(cl);
+        wb.Add(new Clothes(100, "t2", "t2", "t2"));
+        wb.Display();
+        System.out.println("");
+        //Тест ввода
+        wb.Read();
+        wb.Display();
+        System.out.println("");
+        //Тест удаления
+        wb.Delete(2);
+        System.out.println("");
+        wb.Display();
+        //Тест сортировки 1
+        wb.SortByClothesStatus();
+        wb.Display();
+        System.out.println("");
+        //Тест сортировки 2
+        wb.SortByClothingSetCount();
+        wb.Display();
+        System.out.println("");
     }
 }

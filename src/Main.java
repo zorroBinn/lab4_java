@@ -12,17 +12,21 @@ public class Main {
         wb.Read();
         wb.Display();
         System.out.println("");
+        System.out.println("");
         //Тест удаления
         wb.Delete(2);
+        System.out.println("");
         System.out.println("");
         wb.Display();
         //Тест сортировки 1
         wb.SortByClothesStatus();
         wb.Display();
         System.out.println("");
+        System.out.println("");
         //Тест сортировки 2
         wb.SortByClothingSetCount();
         wb.Display();
+        System.out.println("");
         System.out.println("");
     }
 }

@@ -6,23 +6,29 @@ public class Main {
         Wardrobe wb = new Wardrobe();
         wb.Add(cl);
         wb.Add(new Clothes(100, "t2", "t2", "t2"));
+        SetColor sk = new SetColor(cl, "Зелёный");
+        wb.Add(sk);
         wb.Display();
         System.out.println("");
+
         //Тест ввода
         wb.Read();
         wb.Display();
         System.out.println("");
         System.out.println("");
+
         //Тест удаления
         wb.Delete(2);
-        System.out.println("");
-        System.out.println("");
         wb.Display();
+        System.out.println("");
+        System.out.println("");
+
         //Тест сортировки 1
         wb.SortByClothesStatus();
         wb.Display();
         System.out.println("");
         System.out.println("");
+
         //Тест сортировки 2
         wb.SortByClothingSetCount();
         wb.Display();

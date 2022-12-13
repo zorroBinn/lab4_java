@@ -3,7 +3,7 @@ import java.rmi.server.ExportException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class MedicalCard extends Document implements Reading//Класс Медкарта
+public class MedicalCard//Класс Медкарта
 {
     protected Human human; //Персонаж
     protected String HealthStatus; //Статус здоровья персонажа
@@ -15,13 +15,6 @@ public class MedicalCard extends Document implements Reading//Класс Мед�
         this.HealthStatus = "";
     }
     MedicalCard(Human human, int weight, int height, String status) {//конструктор с параметрами
-        this.Weight = weight;
-        this.Height = height;
-        this.HealthStatus = status;
-        this.human = human;
-    }
-    MedicalCard(Human human, int weight, int height, String status, int counter) {
-        super(counter);
         this.Weight = weight;
         this.Height = height;
         this.HealthStatus = status;
@@ -74,7 +67,7 @@ public class MedicalCard extends Document implements Reading//Класс Мед�
         this.human = human;
     }
     public String toString() {//Вывод на экран
-        return "Медкарта номер " + nomber + "\nИмя пациента: " + human.GetName() + "\nВес (в кг): " + Weight +
+        return "\nИмя пациента: " + human.GetName() + "\nВес (в кг): " + Weight +
                 "\nРост (в см): " + Height + "\nСостояние здоровья: " + HealthStatus;
     }
     public void BodyMassIndex() { //Метод рассчёта ИМТ
@@ -110,8 +103,4 @@ public class MedicalCard extends Document implements Reading//Класс Мед�
         this.HealthStatus = status;
     }
 
-    @Override
-    public void ExtendDocument() {
-        System.out.println("Действие документа проведено");
-    }
 }
